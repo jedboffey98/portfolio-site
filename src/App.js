@@ -8,6 +8,7 @@ import { Transition } from "@tailwindui/react";
 import { UserCircleIcon } from "@heroicons/react/outline";
 import { DownloadIcon } from "@heroicons/react/solid";
 import { MenuIcon } from "@heroicons/react/outline";
+import AboutMe from "./AboutMe";
 
 function App() {
   const [menuExpanded, setMenuExpanded] = useState(false);
@@ -54,16 +55,16 @@ function App() {
           </div>
         </div>
       </Transition>
-      <div>
-        <nav class="bg-gray-100 sticky top-0">
+      <div class="flex flex-col items-center">
+        <nav class="absolute w-screen top-0">
           <div class="mx-4 p-2 py-4">
             <div class="flex justify-between items-center">
-              <button class="flex space-x-2 text-gray-700 hover:text-gray-800 cursor-pointer">
-                <UserCircleIcon class="h-7 text-red-400" />
-                <p class="font-semibold text-lg">Jed Boffey</p>
+              <button class="flex space-x-2 text-gray-600 hover:text-gray-800 cursor-pointer">
+                <UserCircleIcon class="h-7 text-blue-400" />
+                <p class="font-medium text-lg">Jed Boffey</p>
               </button>
 
-              <div class="hidden md:flex space-x-5 font-regular text-md text-gray-600 hover:text-gray-700">
+              <div class="hidden md:flex space-x-7 font-regular text-md text-gray-600 hover:text-gray-700">
                 <button>Experience</button>
 
                 <button>Skills</button>
@@ -88,13 +89,10 @@ function App() {
         </nav>
 
         <div
-          class="bg-gray-100 h-screen"
+          class="h-screen bg-gray-100 md:max-w-screen-sm max-w-screen-sm mx-3"
           onClick={() => menuExpanded && setMenuExpanded(false)}
         >
-          <div class="py-32 text-left h-screen">
-            <h2 class="font-extrabold text-4xl text-red-600">Jed Boffey</h2>
-            <h3>Full-stack software engineer</h3>
-          </div>
+          <AboutMe />
         </div>
       </div>
     </div>
