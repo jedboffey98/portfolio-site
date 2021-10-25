@@ -56,7 +56,7 @@ function App() {
         </div>
       </Transition>
       <div class="flex flex-col items-center">
-        <nav class="absolute w-screen top-0">
+        <nav class="sticky top-0 w-screen z-40">
           <div class="mx-4 p-2 py-4">
             <div class="flex justify-between items-center">
               <button class="flex space-x-2 text-gray-600 hover:text-gray-800 cursor-pointer">
@@ -89,7 +89,7 @@ function App() {
         </nav>
 
         <div
-          class="h-screen bg-gray-100 md:max-w-screen-sm max-w-screen-sm mx-3"
+          class="absolute top-0 h-screen bg-gray-100 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md max-w-screen-sm mx-3 align-top"
           onClick={() => menuExpanded && setMenuExpanded(false)}
         >
           <AboutMe />
