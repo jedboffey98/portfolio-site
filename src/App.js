@@ -43,7 +43,7 @@ function App() {
       <Transition
         show={appeared}
         enter="transition-all duration-500"
-        enterFrom="opacity-0 -my-3"
+        enterFrom="opacity-0 -my-9"
         enterTo="opacity-100 my-0"
         leave="transition-all duration-500"
         leaveTo="opacity 0"

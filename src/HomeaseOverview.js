@@ -60,7 +60,7 @@ function HomeaseOverview() {
 
       <img
         src={Homease2}
-        class="h-full col-start-2 col-span-2 row-span-2 py-6 lg:py-0 lg:row-span-4 lg:row-start-2 lg:col-start-3 lg:col-span-2 self-center justify-self-center object-cover z-10"
+        class="h-full col-start-2 col-span-2 row-span-2 py-6 lg:py-0 lg:row-span-4 lg:row-start-2 lg:col-start-3 lg:col-span-2 self-center justify-self-center object-cover z-10 transform-gpu hover:scale-110 transition-all duration-700 ease-in-out"
       />
 
       <img
@@ -81,7 +81,7 @@ function HomeaseOverview() {
           backgroundColor: "#fca5a5",
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23ac5555' fill-opacity='0.15'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-        class="h-0 w-0 lg:h-full lg:w-full row-span-5 col-span-2 row-start-2 col-start-5 z-0 rounded-full"
+        class="h-0 w-0 lg:h-full lg:w-full row-span-3 col-span-2 row-start-2 col-start-5 z-0 rounded-full"
       />
 
       <div class="w-9/10 p-6 ml-auto mt-auto col-start-1 row-start-3 col-span-2 row-span-2 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-4 lg:m-3 self-end z-10 rounded-none lg:rounded-md border-t-2 border-white lg:border-0">

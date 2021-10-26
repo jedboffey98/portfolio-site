@@ -57,7 +57,7 @@ function BoffeyOverview() {
         Full-stack engineer based in New York, NY
       </h1>
 
-      <div class="flex items-center space-x-4 justify-start max-w-3xl mx-auto my-8">
+      <div class="flex items-top space-x-4 justify-start max-w-3xl mx-auto my-8">
         <img
           src={Headshot}
           class="h-24 w-24 object-cover rounded-full filter shadow-inner"
@@ -67,7 +67,9 @@ function BoffeyOverview() {
             Startup founder & university student. Previously worked on{" "}
             <span class="font-semibold">CSGOShack</span>, and am now working for{" "}
             <span class="font-semibold">Homease</span> and{" "}
-            <span class="font-semibold">Loop</span>.
+            <span class="font-semibold">Loop</span>. Due to graduate in May 2022
+            with a BS in Business (specialising in data science & finance), with
+            a minor in CS.
           </p>
 
           <div class="flex gap-x-5 ml-1 items-center">
@@ -90,7 +92,7 @@ function BoffeyOverview() {
       <div class="justify-start max-w-3xl mx-auto">
         <div class="flex gap-x-9 mb-3">
           <p class="text-sm text-gray-600 mb-2 font-semibold">My skills</p>
-          <p class="text-sm text-red-500">This website</p>
+          <p class="text-sm font-semibold text-red-400">This website</p>
         </div>
 
         <div class="flex flex-wrap gap-x-3 gap-y-2">
