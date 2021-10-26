@@ -7,6 +7,6 @@ const config = {
   projectId: process.env.REACT_APP_projectId,
 };
 
-const app = initializeApp(config);
+initializeApp(config);
 
 export const db = getFirestore();

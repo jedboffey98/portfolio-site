@@ -100,7 +100,7 @@ function HomeaseOverview() {
         <h5 class="text-sm font-semibold text-white mt-7 mb-4">The stack</h5>
         <div class="flex flex-wrap gap-2">
           {stack.map((tech) => (
-            <div class="p-2 bg-gray-100 rounded-lg">
+            <div key={tech.name} class="p-2 bg-gray-100 rounded-lg">
               <p class="text-xs text-gray-800">{tech.name}</p>
             </div>
           ))}

@@ -9,13 +9,10 @@ import BoffeyOverview from "./BoffeyOverview";
 import Navigation from "./Navigation";
 import HomeaseOverview from "./HomeaseOverview";
 
-import { db } from "../Services/Firebase";
-
 function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
 
   useEffect(() => {
-    console.log(db);
     setTimeout(() => {
       setAppeared(true);
     }, 150);
