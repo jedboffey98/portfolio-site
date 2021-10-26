@@ -1,12 +1,10 @@
 import { db } from "./Firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
-// All callbacks in (data, error) format
-//
-//
+export const fetchExperiences = async () => {
+  const q = query(collection(db, "experiences"), orderBy("start_date", "desc"));
+  const querySnapshot = await getDocs(q);
 
-export const fetchExperiences = async (callback) => {
-  const querySnapshot = await getDocs(collection(db, "experiences"));
   const experienceData = querySnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),

@@ -29,7 +29,7 @@ function WorkOverview() {
   }, [gridVisible]);
 
   return (
-    <div ref={gridRef} class="w-9/10 max-w-7xl h-800 mx-auto px-9 py-12">
+    <div ref={gridRef} class="w-9/10 max-w-7xl min-h-800 mx-auto px-9 py-12">
       <Transition
         show={show}
         enter="transition-all duration-700"
