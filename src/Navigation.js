@@ -54,7 +54,7 @@ function Navigation(props) {
       <div class="">
         <nav
           class={`fixed top-0 w-screen z-10 ${
-            scrolled ? "bg-gray-100" : ""
+            scrolled ? "bg-gray-100" : "bg-gray-100"
           } transition-all ease-in-out duration-150 `}
         >
           <div class="mx-4 p-2 py-4">

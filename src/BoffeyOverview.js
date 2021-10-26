@@ -52,7 +52,7 @@ const myStack = [
 
 function BoffeyOverview() {
   return (
-    <div class="w-full px-4">
+    <div class="w-full px-4 mb-16">
       <h1 class="max-w-3xl text-3xl md:text-6xl mb-3 mt-36 font-medium text-gray-700 mx-auto">
         Full-stack engineer based in New York, NY
       </h1>
@@ -97,7 +97,7 @@ function BoffeyOverview() {
           {myStack.map((tech) => (
             <div
               class={`px-3 py-2 ${
-                tech.this ? "bg-red-700" : "bg-gray-800"
+                tech.this ? "bg-red-400" : "bg-gray-500"
               } rounded-lg`}
             >
               <p class="text-sm text-white">{tech.name}</p>

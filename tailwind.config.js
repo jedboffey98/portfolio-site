@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         beach: "url('/src/assets/Beach.jpg')",
       },
+      height: {
+        800: "800px",
+      },
     },
   },
   variants: {
