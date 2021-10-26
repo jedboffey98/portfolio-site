@@ -113,7 +113,32 @@ function BoffeyOverview() {
             >
               <p class="text-sm text-white">{tech.name}</p>
             </div>
-          ))}
+          ) : skills === undefined ? (
+            Array(5)
+              .fill()
+              .map((_, i) => (
+                <div
+                  key={i}
+                  class={`animate-pulse w-${getRandomInt(
+                    13,
+                    18
+                  )} px-3 py-2 bg-gray-300 rounded-lg`}
+                >
+                  <p class="text-sm text-gray-300 opacity-0">placeholder</p>
+                </div>
+              ))
+          ) : (
+            skills.map((tech) => (
+              <div
+                key={tech.id}
+                class={`px-3 py-2 ${
+                  tech.used_here ? "bg-red-400" : "bg-gray-500"
+                } rounded-lg`}
+              >
+                <p class="text-sm text-white">{tech.skill}</p>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
