@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Headshot from "./assets/headshot_cropped.jpg";
 import LinkedInLogo from "./assets/linkedin_logo.png";
 import GithubLogo from "./assets/github-logo.png";
+import { fetchSkills } from "../Services/SkillsServices";
 
 const myStack = [
   {
@@ -51,8 +52,15 @@ const myStack = [
 ];
 
 function BoffeyOverview() {
+  const [skills, setSkills] = useState();
+
+  useEffect(() => {
+    fetchSkills().then((skills) => setSkills(skills));
+  }, []); //like componentDidMount
+
   return (
     <div class="w-full px-4 mb-16">
+      <p>{JSON.stringify(skills)}</p>
       <h1 class="max-w-3xl text-3xl md:text-6xl mb-3 mt-36 font-medium text-gray-700 mx-auto">
         Full-stack engineer based in New York, NY
       </h1>
@@ -64,8 +72,8 @@ function BoffeyOverview() {
         />
         <div>
           <p class="text-sm text-gray-700 max-w-lg mb-2">
-            Startup founder & university student. Previously worked on{" "}
-            <span class="font-semibold">CSGOShack</span>, and am now working for{" "}
+            Startup founder & NYU Stern student. Previously setup and ran{" "}
+            <span class="font-semibold">CSGOShack</span>, and am now building{" "}
             <span class="font-semibold">Homease</span> and{" "}
             <span class="font-semibold">Loop</span>. Due to graduate in May 2022
             with a BS in Business (specialising in data science & finance), with
@@ -98,6 +106,7 @@ function BoffeyOverview() {
         <div class="flex flex-wrap gap-x-3 gap-y-2">
           {myStack.map((tech) => (
             <div
+              key={tech.name}
               class={`px-3 py-2 ${
                 tech.this ? "bg-red-400" : "bg-gray-500"
               } rounded-lg`}

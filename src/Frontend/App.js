@@ -9,36 +9,25 @@ import BoffeyOverview from "./BoffeyOverview";
 import Navigation from "./Navigation";
 import HomeaseOverview from "./HomeaseOverview";
 
-function App() {
-  const [menuExpanded, setMenuExpanded] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+import { db } from "../Services/Firebase";
 
+function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
 
   useEffect(() => {
+    console.log(db);
     setTimeout(() => {
       setAppeared(true);
     }, 150);
   }, []); //empty dependency array - runs on mount i.e. ComponentDidMount()
-
-  const toggleMenu = () => {
-    setMenuExpanded((prev) => !prev);
-  };
-
-  const scrollRef = React.createRef();
-  const onScroll = () => {
-    setScrolled(scrollRef.current.scrollTop > 20 ? true : false);
-  };
 
   return (
     <div
       className="app"
       class={`bg-gray-100 relative w-screen h-screen overflow-y-auto overflow-x-hidden
       }`}
-      ref={scrollRef}
-      onScroll={onScroll}
     >
-      <Navigation scrollRef={scrollRef} />
+      <Navigation />
 
       <Transition
         show={appeared}

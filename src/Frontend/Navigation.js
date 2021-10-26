@@ -5,17 +5,11 @@ import { MenuIcon } from "@heroicons/react/outline";
 
 import { Transition } from "@tailwindui/react";
 
-function Navigation(props) {
+function Navigation() {
   const [menuExpanded, setMenuExpanded] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => {
     setMenuExpanded((prev) => !prev);
-  };
-
-  const scrollRef = props.scrollRef;
-  const onScroll = () => {
-    setScrolled(scrollRef.current.scrollTop > 20 ? true : false);
   };
 
   return (
@@ -53,9 +47,8 @@ function Navigation(props) {
       </Transition>
       <div class="">
         <nav
-          class={`fixed top-0 w-screen z-10 ${
-            scrolled ? "bg-gray-100" : "bg-gray-100"
-          } transition-all ease-in-out duration-150 `}
+          class={`fixed top-0 w-screen z-10 bg-gray-100
+           transition-all ease-in-out duration-150 `}
         >
           <div class="mx-4 p-2 py-4">
             <div class="flex justify-between items-center">
