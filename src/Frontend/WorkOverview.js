@@ -7,6 +7,7 @@ import ExperienceSection from "./ExperienceSection";
 
 function WorkOverview() {
   const [experiences, setExperiences] = useState();
+  const [show, setShow] = useState(false);
 
   const gridRef = createRef();
   const gridVisible = useOnScreen(gridRef);
@@ -14,20 +15,23 @@ function WorkOverview() {
   useEffect(() => {
     if (gridVisible) {
       setTimeout(() => {
-        fetchExperiences()
-          .then((exp) => setExperiences(exp))
-          .catch((error) => {
-            console.log(error);
-            setExperiences("error");
-          });
-      }, 500); //make skeletons visible for longer - engaging
+        setShow(true);
+        setTimeout(() => {
+          fetchExperiences()
+            .then((exp) => setExperiences(exp))
+            .catch((error) => {
+              console.log(error);
+              setExperiences("error");
+            });
+        }, 500); //make skeletons visible for longer - engaging
+      }, 250);
     }
   }, [gridVisible]);
 
   return (
     <div ref={gridRef} class="w-9/10 max-w-7xl h-800 mx-auto px-9 py-12">
       <Transition
-        show={gridVisible}
+        show={show}
         enter="transition-all duration-700"
         enterFrom="opacity-0"
         enterTo="opacity-100"
