@@ -8,51 +8,6 @@ import { fetchSkills } from "../Services/SkillsServices";
 import { getRandomInt } from "./Utils/MathsUtils";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
-const myStack = [
-  {
-    name: "JavaScript",
-    this: true,
-  },
-  {
-    name: "Node.js",
-  },
-  {
-    name: "React",
-    this: true,
-  },
-  {
-    name: "Firebase",
-    this: true,
-  },
-  {
-    name: "Google Cloud",
-  },
-  {
-    name: "Swift",
-  },
-  {
-    name: "SwiftUI",
-  },
-  {
-    name: "Python",
-  },
-  {
-    name: "Java",
-  },
-  {
-    name: "C/C++",
-  },
-  {
-    name: "REST",
-  },
-  {
-    name: "Postman",
-  },
-  {
-    name: "Git",
-  },
-];
-
 function BoffeyOverview() {
   const [skills, setSkills] = useState();
 
@@ -117,7 +72,7 @@ function BoffeyOverview() {
               <ExclamationCircleIcon class="h-4 text-red-400" />
             </div>
           ) : skills === undefined ? (
-            Array(5)
+            Array(12)
               .fill()
               .map((_, i) => (
                 <div

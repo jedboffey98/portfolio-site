@@ -8,6 +8,7 @@ import { Transition } from "@tailwindui/react";
 import BoffeyOverview from "./BoffeyOverview";
 import Navigation from "./Navigation";
 import HomeaseOverview from "./HomeaseOverview";
+import WorkOverview from "./WorkOverview";
 
 function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
@@ -37,15 +38,9 @@ function App() {
         <BoffeyOverview />
 
         <HomeaseOverview />
-      </Transition>
 
-      {/*<div class="w-screen h-screen text-center">
-          <AboutMe
-            onClick={() => menuExpanded && setMenuExpanded(false)}
-            class=""
-          />
-          <Showcase />
-        </div>*/}
+        <WorkOverview />
+      </Transition>
     </div>
   );
 }

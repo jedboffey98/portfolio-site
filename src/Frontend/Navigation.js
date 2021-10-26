@@ -4,12 +4,21 @@ import { DownloadIcon } from "@heroicons/react/solid";
 import { MenuIcon } from "@heroicons/react/outline";
 
 import { Transition } from "@tailwindui/react";
+import { fetchResume } from "../Services/StorageServices";
 
 function Navigation() {
   const [menuExpanded, setMenuExpanded] = useState(false);
+  const [fetchingResume, setFetchingResume] = useState(false);
 
   const toggleMenu = () => {
     setMenuExpanded((prev) => !prev);
+  };
+
+  const handleGetResume = () => {
+    setFetchingResume(true);
+    fetchResume((success) => {
+      setFetchingResume(false);
+    });
   };
 
   return (
@@ -38,7 +47,10 @@ function Navigation() {
           </div>
 
           <div>
-            <button class="flex space-x-2 hover:text-gray-800 border-gray-300 border rounded-xl px-2 py-2">
+            <button
+              onClick={handleGetResume}
+              class="flex space-x-2 hover:text-gray-800 border-gray-300 border rounded-xl px-2 py-2"
+            >
               <p>Download Resume</p>
               <DownloadIcon class="h-6 text-gray-500" />
             </button>
@@ -66,7 +78,10 @@ function Navigation() {
               </div>
 
               <div class="hidden md:flex space-x-4 text-sm font-medium text-gray-600">
-                <button class="flex space-x-2 hover:text-gray-800 bg-gray-200 border rounded-2xl px-3 py-2">
+                <button
+                  onClick={handleGetResume}
+                  class="flex space-x-2 hover:text-gray-800 bg-gray-200 border rounded-2xl px-3 py-2"
+                >
                   <p>Download Resume</p>
                   <DownloadIcon class="h-5 text-gray-400" />
                 </button>

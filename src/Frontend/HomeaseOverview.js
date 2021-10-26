@@ -84,17 +84,21 @@ function HomeaseOverview() {
         class="h-0 w-0 lg:h-full lg:w-full row-span-3 col-span-2 row-start-2 col-start-5 z-0 rounded-full"
       />
 
-      <div class="w-9/10 p-6 ml-auto mt-auto col-start-1 row-start-3 col-span-2 row-span-2 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-4 lg:m-3 self-end z-10 rounded-none lg:rounded-md border-t-2 border-white lg:border-0">
+      <div class="w-9/10 p-6 ml-auto mt-auto col-start-1 row-start-3 col-span-2 row-span-2 lg:col-start-5 lg:col-span-2 lg:row-start-1 lg:row-span-4 lg:m-3 self-end justify-self-center z-10 rounded-none lg:rounded-md border-t-2 border-white lg:border-0">
         <h2 class="text-white text-3xl font-medium mb-6">
           Homease{" "}
           <span class="text-xs font-regular text-white">
             October 2020 - present
           </span>
         </h2>
-        <p class="text-white text-sm font-regular">
+        <p class="text-white text-sm font-regular mb-2 font-medium">
+          These aren't mockups, we've implemented about 85% of the
+          functionality.
+        </p>
+        <p class="text-gray-100 text-sm font-regular">
           Homease is an end to end real estate platform for tenants and brokers.
           We centralize the whole process, from finding your place, to putting
-          your deposit down, and finally to paying rent. And maintenance.
+          your deposit down, and finally to paying rent.
         </p>
 
         <h5 class="text-sm font-semibold text-white mt-7 mb-4">The stack</h5>
