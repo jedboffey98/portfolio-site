@@ -5,6 +5,8 @@ import Headshot from "./assets/headshot_cropped.jpg";
 import LinkedInLogo from "./assets/linkedin_logo.png";
 import GithubLogo from "./assets/github-logo.png";
 import { fetchSkills } from "../Services/SkillsServices";
+import { getRandomInt } from "./Utils/MathsUtils";
+import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
 const myStack = [
   {
@@ -55,12 +57,18 @@ function BoffeyOverview() {
   const [skills, setSkills] = useState();
 
   useEffect(() => {
-    fetchSkills().then((skills) => setSkills(skills));
+    setTimeout(() => {
+      fetchSkills()
+        .then((skills) => setSkills(skills))
+        .catch((error) => {
+          console.log(error);
+          setSkills("error");
+        });
+    }, 250); //make skeletons visible for longer - engaging
   }, []); //like componentDidMount
 
   return (
     <div class="w-full px-4 mb-16">
-      <p>{JSON.stringify(skills)}</p>
       <h1 class="max-w-3xl text-3xl md:text-6xl mb-3 mt-36 font-medium text-gray-700 mx-auto">
         Full-stack engineer based in New York, NY
       </h1>
@@ -104,14 +112,9 @@ function BoffeyOverview() {
         </div>
 
         <div class="flex flex-wrap gap-x-3 gap-y-2">
-          {myStack.map((tech) => (
-            <div
-              key={tech.name}
-              class={`px-3 py-2 ${
-                tech.this ? "bg-red-400" : "bg-gray-500"
-              } rounded-lg`}
-            >
-              <p class="text-sm text-white">{tech.name}</p>
+          {skills === "error" ? (
+            <div class="flex">
+              <ExclamationCircleIcon class="h-4 text-red-400" />
             </div>
           ) : skills === undefined ? (
             Array(5)
