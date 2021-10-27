@@ -1,4 +1,5 @@
-import React from "react";
+import React, { createRef } from "react";
+import useOnScreen from "../Hooks/useOnScreen";
 
 import Homease1 from "./assets/homease_1.jpg";
 import Homease2 from "./assets/homease_2.jpg";
@@ -51,8 +52,16 @@ const stack = [
 ];
 
 function HomeaseOverview() {
+  const ref = createRef();
+  const visible = useOnScreen(ref);
+
   return (
-    <div class="w-9/10 max-w-7xl h-800 bg-red-300 mx-auto mb-12 mt-16 transform-gpu hover:scale-105 transition-all duration-700 ease-in-out grid grid-cols-2 grid-rows-5 lg:grid-cols-6 lg:grid-rows-6">
+    <div
+      ref={ref}
+      class={`w-9/10 max-w-7xl h-screen bg-red-300 mx-auto mb-12 mt-16 transform-gpu ${
+        visible && "scale-105"
+      } transition-all duration-700 ease-in-out grid grid-cols-2 grid-rows-5 lg:grid-cols-6 lg:grid-rows-6`}
+    >
       <img
         src={Homease1}
         class="h-full col-start-1 col-span-1 row-start-2 lg:col-start-1 lg:col-span-2 lg:row-span-3 lg:row-start-4 lg:self-end lg:justify-self-start object-cover pl-6 z-10"
@@ -104,7 +113,7 @@ function HomeaseOverview() {
         <h5 class="text-sm font-semibold text-white mt-7 mb-4">The stack</h5>
         <div class="flex flex-wrap gap-2">
           {stack.map((tech) => (
-            <div key={tech.name} class="p-2 bg-gray-100 rounded-lg">
+            <div key={tech.name} class="py-2 px-4 bg-gray-100 rounded-full">
               <p class="text-xs text-gray-800">{tech.name}</p>
             </div>
           ))}

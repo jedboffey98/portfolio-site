@@ -8,6 +8,8 @@ import { Transition } from "@tailwindui/react";
 import BoffeyOverview from "./BoffeyOverview";
 import Navigation from "./Navigation";
 import HomeaseOverview from "./HomeaseOverview";
+
+import { db } from "../Services/Firebase";
 import WorkOverview from "./WorkOverview";
 
 function App() {
@@ -41,6 +43,14 @@ function App() {
 
         <WorkOverview />
       </Transition>
+
+      {/*<div class="w-screen h-screen text-center">
+          <AboutMe
+            onClick={() => menuExpanded && setMenuExpanded(false)}
+            class=""
+          />
+          <Showcase />
+        </div>*/}
     </div>
   );
 }

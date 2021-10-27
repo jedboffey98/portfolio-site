@@ -28,7 +28,7 @@ function BoffeyOverview() {
         Full-stack engineer based in New York, NY
       </h1>
 
-      <div class="flex items-top space-x-4 justify-start max-w-3xl mx-auto my-8">
+      <div class="flex items-top space-x-4 justify-start max-w-3xl mx-auto my-10">
         <img
           src={Headshot}
           class="h-24 w-24 object-cover rounded-full filter shadow-inner"
@@ -61,7 +61,7 @@ function BoffeyOverview() {
       </div>
 
       <div class="justify-start max-w-3xl mx-auto">
-        <div class="flex gap-x-9 mb-3">
+        <div class="flex gap-x-9 mb-1">
           <p class="text-sm text-gray-600 mb-2 font-semibold">My skills</p>
           <p class="text-sm font-semibold text-red-400">This website</p>
         </div>
@@ -89,9 +89,9 @@ function BoffeyOverview() {
             skills.map((tech) => (
               <div
                 key={tech.id}
-                class={`px-3 py-2 ${
+                class={`px-4 py-2 ${
                   tech.used_here ? "bg-red-400" : "bg-gray-500"
-                } rounded-lg`}
+                } rounded-full`}
               >
                 <p class="text-sm text-white">{tech.skill}</p>
               </div>
@@ -99,7 +99,7 @@ function BoffeyOverview() {
           )}
         </div>
 
-        <p class="text-sm text-gray-700 mt-6">
+        <p class="text-sm text-gray-700 mt-14">
           I've setup a basic API to pull data from this site's Firestore. The
           entry point is{" "}
           <span class="font-semibold underline">
@@ -107,7 +107,7 @@ function BoffeyOverview() {
           </span>
         </p>
 
-        <p class="text-sm text-gray-700 mt-2">
+        <p class="text-sm text-gray-700 mt-2 mb-14">
           You can <span class="font-semibold">GET</span>{" "}
           <span class="font-semibold underline">/experience</span> for a list of
           my work experience or{" "}
