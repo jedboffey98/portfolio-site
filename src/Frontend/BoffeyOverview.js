@@ -99,23 +99,6 @@ function BoffeyOverview() {
             ))
           )}
         </div>
-
-        <p class="text-sm text-gray-700 mt-14">
-          I've setup a basic API to pull data from this site's Firestore. The
-          entry point is{" "}
-          <span class="font-semibold underline">
-            https://us-central1-boffey-portfolio.cloudfunctions.net/webapi/api/v1.
-          </span>
-        </p>
-
-        <p class="text-sm text-gray-700 mt-2 mb-14">
-          You can <span class="font-semibold">GET</span>{" "}
-          <span class="font-semibold underline">/experience</span> for a list of
-          my work experience or{" "}
-          <span class="font-semibold underline">/resume</span> for a
-          base64-encoded resume (dealing with Functions' filesystem can be
-          messy!).
-        </p>
       </div>
     </div>
   );

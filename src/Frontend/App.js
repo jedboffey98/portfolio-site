@@ -11,6 +11,7 @@ import HomeaseOverview from "./HomeaseOverview";
 
 import { db } from "../Services/Firebase";
 import WorkOverview from "./WorkOverview";
+import ApiView from "./ApiView";
 
 function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
@@ -38,6 +39,8 @@ function App() {
         leaveTo="opacity 0"
       >
         <BoffeyOverview />
+
+        <ApiView />
 
         <HomeaseOverview />
 
