@@ -80,7 +80,7 @@ function BoffeyOverview() {
                   key={i}
                   class={`animate-pulse w-${getRandomInt(
                     13,
-                    18
+                    15
                   )} px-4 py-2 bg-gray-300 rounded-full`}
                 >
                   <p class="text-sm text-gray-300 opacity-0">placeholder</p>
