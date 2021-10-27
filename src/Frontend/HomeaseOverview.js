@@ -58,7 +58,7 @@ function HomeaseOverview() {
   return (
     <div
       ref={ref}
-      class={`w-9/10 max-w-7xl h-screen bg-red-300 mx-auto mb-12 mt-16 transform-gpu ${
+      class={`w-9/10 max-w-7xl h-800 bg-red-300 mx-auto mb-12 mt-16 transform-gpu ${
         visible && "scale-105"
       } transition-all duration-700 ease-in-out grid grid-cols-2 grid-rows-5 lg:grid-cols-6 lg:grid-rows-6`}
     >
