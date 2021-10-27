@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { sendRequest } from "../Services/ApiServices";
+import Typing from "react-typing-animation";
 
 function ApiView() {
   const [entry, setEntry] = useState("/");
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState("Try out an endpoint!");
   const [fetching, setFetching] = useState(false);
 
   const handleEntry = (event) => {
@@ -12,9 +13,9 @@ function ApiView() {
 
   const handleSend = () => {
     setFetching(true);
+    setResponse();
     sendRequest("GET", entry)
       .then((result) => {
-        console.log(result);
         setTimeout(() => {
           setResponse(result.data);
           setFetching(false);
@@ -43,7 +44,7 @@ function ApiView() {
         base64-encoded resume (dealing with Functions' filesystem can be
         messy!).
       </p>
-      <div class="flex gap-x-3">
+      <div class="flex gap-x-3 mt-9 md:mt-7">
         <input
           class="bg-gray-200 filter shadow-inner px-4 py-2 rounded-md text-sm w-full outline-red-100"
           value={entry}
@@ -76,10 +77,22 @@ function ApiView() {
         </button>
       </div>
 
-      <div class="w-full p-4 bg-gray-200 my-3 rounded-md overflow-y-auto max-h-72">
-        <p class="text-xs">
-          <pre>{JSON.stringify(response, null, 2)}</pre>
-        </p>
+      <div class="w-full p-4 bg-gray-200 my-3 overflow-auto rounded-md h-72">
+        {response ? (
+          JSON.stringify(response, null, 2).length < 100 ? (
+            <Typing speed={50}>
+              <p class="text-xs">
+                <pre>{JSON.stringify(response, null, 2)}</pre>
+              </p>
+            </Typing>
+          ) : (
+            <p class="text-xs">
+              <pre>{JSON.stringify(response, null, 2)}</pre>
+            </p>
+          )
+        ) : (
+          <p class="text-xs">#</p>
+        )}
       </div>
     </div>
   );
