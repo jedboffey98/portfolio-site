@@ -30,6 +30,7 @@ function BoffeyOverview() {
 
       <div class="flex items-top space-x-4 justify-start max-w-3xl mx-auto my-10">
         <img
+          aria-label="Image of myself"
           src={Headshot}
           class="h-24 w-24 object-cover rounded-full filter shadow-inner"
         />

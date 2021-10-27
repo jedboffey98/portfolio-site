@@ -63,16 +63,19 @@ function HomeaseOverview() {
       } transition-all duration-700 ease-in-out grid grid-cols-2 grid-rows-5 lg:grid-cols-6 lg:grid-rows-6`}
     >
       <img
+        aria-label="App screenshot showing appointment view"
         src={Homease1}
         class="h-full col-start-1 col-span-1 row-start-2 lg:col-start-1 lg:col-span-2 lg:row-span-3 lg:row-start-4 lg:self-end lg:justify-self-start object-cover pl-6 z-10"
       />
 
       <img
+        aria-label="App screenshot showing apartment pins on a map"
         src={Homease2}
         class="h-full col-start-2 col-span-2 row-span-2 py-6 lg:py-0 lg:row-span-4 lg:row-start-2 lg:col-start-3 lg:col-span-2 self-center justify-self-center object-cover z-10 transform-gpu hover:scale-110 transition-all duration-700 ease-in-out"
       />
 
       <img
+        aria-label="App screenshot showing offer response view"
         src={Homease3}
         class="h-full col-start-1 col-span-1 row-start-1 lg:col-start-1 lg:col-span-2 lg:row-span-3 lg:row-start-1 self-end justify-self-end object-cover pl-16 z-10"
       />
