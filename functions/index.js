@@ -18,7 +18,6 @@ exports.webapi = functions.https.onRequest(main);
 
 exports.testApi = functions.https.onCall(async (data, context) => {
   const extension = data.extension;
-  const method = data.method;
 
   // GET request for remote image in node.js
   return axios({

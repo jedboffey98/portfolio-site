@@ -31,7 +31,7 @@ function WorkOverview() {
   return (
     <div ref={gridRef} class="w-9/10 max-w-7xl min-h-800 mx-auto px-9 py-12">
       <div
-        class={`grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16 transition-all duration-500 ${
+        class={`grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4 md:gap-y-16 transition-all duration-500 ${
           show ? "opacity-100" : "opacity-10"
         }`}
       >

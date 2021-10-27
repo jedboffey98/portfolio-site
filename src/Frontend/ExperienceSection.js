@@ -11,12 +11,8 @@ function ExperienceSection(props) {
 
   return (
     <>
-      <div>
-        <p
-          class={`self-start justify-self-center text-4xl font-medium ${loadify(
-            props.w
-          )} text-red-400`}
-        >
+      <div class="self-end justify-self-center md:self-start md:justify-self-start mt-10 md:mt-0 ">
+        <p class={`text-4xl font-medium ${loadify(props.w)} text-red-400`}>
           {props.w ? props.w.dates : "##### - #####"}
         </p>
         <div class="flex items-center gap-x-1">

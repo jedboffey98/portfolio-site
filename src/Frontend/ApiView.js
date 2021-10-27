@@ -29,7 +29,7 @@ function ApiView() {
   };
 
   return (
-    <div class="w-full px-4 max-w-3xl mx-auto">
+    <div class="w-full px-4 md:px-0 max-w-3xl mx-auto">
       <p class="text-sm text-gray-700 mt-14">
         I've setup a basic API to pull data from this site's Firestore. Try it
         out below.
