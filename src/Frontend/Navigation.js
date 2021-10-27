@@ -6,7 +6,7 @@ import { MenuIcon } from "@heroicons/react/outline";
 import { Transition } from "@tailwindui/react";
 import { fetchResume } from "../Services/StorageServices";
 
-function Navigation() {
+function Navigation(props) {
   const [menuExpanded, setMenuExpanded] = useState(false);
   const [fetchingResume, setFetchingResume] = useState(false);
 
@@ -18,6 +18,14 @@ function Navigation() {
     setFetchingResume(true);
     fetchResume((success) => {
       setFetchingResume(false);
+    });
+  };
+
+  const handleScroll = (ref) => {
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      block: "center",
     });
   };
 
@@ -64,15 +72,22 @@ function Navigation() {
         >
           <div class="mx-4 p-2 py-4">
             <div class="flex justify-between items-center">
-              <button class=" text-gray-800 hover:text-gray-900 cursor-pointer text-left text-sm">
+              <button
+                onClick={() => handleScroll(props.homeRef)}
+                class=" text-gray-800 hover:text-gray-900 cursor-pointer text-left text-sm"
+              >
                 <p>Jed Boffey</p>
                 <p class="text-gray-400">Full-stack Engineer</p>
               </button>
 
               <div class="hidden md:flex space-x-7 font-regular text-sm text-gray-600 hover:text-gray-700">
-                <button>Education</button>
+                <button onClick={() => handleScroll(props.educationRef)}>
+                  Education
+                </button>
 
-                <button>Work</button>
+                <button onClick={() => handleScroll(props.workRef)}>
+                  Work
+                </button>
 
                 <button>Contact</button>
               </div>

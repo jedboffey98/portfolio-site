@@ -4,7 +4,7 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 
 const db = admin.firestore();
-// const storage = admin.storage();
+const storage = admin.storage().bucket();
 
 const express = require("express");
 const app = express();
@@ -19,7 +19,7 @@ exports.webapi = functions.https.onRequest(main);
 exports.testApi = functions.https.onCall(async (data, context) => {
   const extension = data.extension;
 
-  // GET request for remote image in node.js
+  // Send get request here because cross-origin policies prevent directly in-app
   return axios({
     method: "get",
     url: `https://us-central1-boffey-portfolio.cloudfunctions.net/webapi/api/v1${extension}`,
@@ -29,7 +29,12 @@ exports.testApi = functions.https.onCall(async (data, context) => {
       return response.data;
     })
     .catch((error) => {
-      return `${error.response.status} - ${error.response.statusText}`;
+      console.log(error);
+      if (error.response) {
+        return `${error.response.status} - ${error.response.statusText}`;
+      } else {
+        return "500 - Internal Server Error"; // unknown error type
+      }
     });
 });
 
@@ -40,10 +45,21 @@ app.get("/experience", async (req, res) => {
     ...exp.data(),
   }));
 
-  res.json(experiences).status(200);
+  res.json(experiences).status(200).send();
 });
 
-// app.post("/resume", async (req, res) => {
-//   const resumeRef = storage.ref("RESUME.pdf");
-//   const base64Pdf = resumeRef
-// });
+app.get("/resume", async (req, res) => {
+  const resumeRef = storage.file("RESUME.pdf");
+
+  return resumeRef.download().then((data) => {
+    // return to keep instance active since async
+    const file = data[0];
+
+    const b64 =
+      "data:application/pdf;base64," + Buffer.from(file).toString("base64");
+
+    res.json({
+      base64_resume: b64,
+    });
+  });
+});

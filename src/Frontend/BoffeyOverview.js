@@ -23,8 +23,8 @@ function BoffeyOverview() {
   }, []); //like componentDidMount
 
   return (
-    <div class="w-full px-4 mb-16">
-      <h1 class="max-w-3xl text-3xl md:text-6xl mb-3 mt-36 font-medium text-gray-700 mx-auto">
+    <div class="w-full px-4 mb-16 pt-36">
+      <h1 class="max-w-3xl text-3xl md:text-6xl mb-3 font-medium text-gray-700 mx-auto">
         Full-stack engineer based in New York, NY
       </h1>
 

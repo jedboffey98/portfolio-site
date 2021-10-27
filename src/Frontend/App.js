@@ -1,7 +1,7 @@
 import "./App.css";
 import "inter-ui/inter.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createRef } from "react";
 
 import { Transition } from "@tailwindui/react";
 
@@ -16,11 +16,19 @@ import ApiView from "./ApiView";
 function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
 
+  const homeRef = createRef();
+  const workRef = createRef();
+  const educationRef = createRef();
+
   useEffect(() => {
     setTimeout(() => {
       setAppeared(true);
     }, 150);
   }, []); //empty dependency array - runs on mount i.e. ComponentDidMount()
+
+  useEffect(() => {
+    console.log(homeRef);
+  }, [homeRef]);
 
   return (
     <div
@@ -28,7 +36,11 @@ function App() {
       class={`bg-gray-100 relative w-screen h-screen overflow-y-auto overflow-x-hidden
       }`}
     >
-      <Navigation />
+      <Navigation
+        homeRef={homeRef}
+        workRef={workRef}
+        educationRef={educationRef}
+      />
 
       <Transition
         show={appeared}
@@ -38,11 +50,15 @@ function App() {
         leave="transition-all duration-500"
         leaveTo="opacity 0"
       >
-        <BoffeyOverview />
+        <div ref={homeRef}>
+          <BoffeyOverview />
+        </div>
 
         <ApiView />
 
-        <HomeaseOverview />
+        <div ref={workRef}>
+          <HomeaseOverview />
+        </div>
 
         <WorkOverview />
       </Transition>
