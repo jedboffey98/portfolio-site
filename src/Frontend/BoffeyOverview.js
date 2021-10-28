@@ -1,4 +1,3 @@
-import { Transition } from "@tailwindui/react";
 import React, { useState, useEffect } from "react";
 
 import Headshot from "./assets/headshot_cropped.jpg";
@@ -8,8 +7,12 @@ import { fetchSkills } from "../Services/SkillsServices";
 import { getRandomInt } from "./Utils/MathsUtils";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
+import Emoji from "./Emoji";
+import { Transition } from "@tailwindui/react";
+
 function BoffeyOverview() {
   const [skills, setSkills] = useState();
+  const [hoveredSkill, setHoveredSkill] = useState();
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +24,10 @@ function BoffeyOverview() {
         });
     }, 250); //make skeletons visible for longer - engaging
   }, []); //like componentDidMount
+
+  const handleHover = (skillId) => {
+    setHoveredSkill(skillId);
+  };
 
   return (
     <div class="w-full px-4 mb-16 pt-36">
@@ -81,20 +88,67 @@ function BoffeyOverview() {
                   class={`animate-pulse w-${getRandomInt(
                     13,
                     15
-                  )} px-4 py-2 bg-gray-300 rounded-full`}
+                  )} px-4 py-2 bg-gray-300 rounded-lg`}
                 >
                   <p class="text-sm text-gray-300 opacity-0">placeholder</p>
                 </div>
               ))
           ) : (
             skills.map((tech) => (
-              <div
-                key={tech.id}
-                class={`px-4 py-2 ${
-                  tech.used_here ? "bg-red-400" : "bg-gray-500"
-                } rounded-full`}
-              >
-                <p class="text-sm text-white">{tech.skill}</p>
+              <div class="relative">
+                <div
+                  key={tech.id}
+                  class={`col-start-1 col-span-1 row-start-1 row-span-1 px-5 py-2 ${
+                    tech.used_here ? "bg-red-400" : "bg-gray-500"
+                  } rounded-full transition-all duration-150 z-10 ${
+                    hoveredSkill && hoveredSkill !== tech.id && "opacity-60"
+                  } ${
+                    hoveredSkill && hoveredSkill !== tech.id && "filter blur-sm"
+                  }`}
+                  onMouseEnter={() => handleHover(tech.id)}
+                  onClick={() =>
+                    handleHover(hoveredSkill === tech.id ? undefined : tech.id)
+                  }
+                >
+                  <p class="text-sm text-white">{tech.skill}</p>
+                </div>
+
+                <Transition
+                  show={hoveredSkill === tech.id}
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                  enter="transition-all duration-250 ease-in"
+                  leave="transition-all duration-250 ease-in"
+                  class="absolute top-0 z-30"
+                  onMouseLeave={() => handleHover()}
+                  onClick={() =>
+                    handleHover(hoveredSkill === tech.id ? undefined : tech.id)
+                  }
+                >
+                  <div
+                    class={`${
+                      hoveredSkill !== tech.id && "pointer-events-none"
+                    }`}
+                  >
+                    <div
+                      class={`absolute top-0 left-0 whitespace-nowrap text-white min-w-full max-w-64 px-5 py-2 rounded-full z-30 ${
+                        tech.used_here ? "bg-red-400" : "bg-gray-500"
+                      } ${
+                        hoveredSkill === tech.id && "filter shadow-lg"
+                      } flex gap-x-1 text-sm font-regular`}
+                    >
+                      <p class="pr-2">{tech.skill}</p>
+                      {Array(tech.level)
+                        .fill()
+                        .map(() => (
+                          <Emoji label="star" symbol="⭐" />
+                        ))}
+                      <div class="bg-white h-max w-1/2" />
+                    </div>
+                  </div>
+                </Transition>
               </div>
             ))
           )}

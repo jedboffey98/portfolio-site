@@ -42,7 +42,7 @@ function ExperienceSection(props) {
         </Fade>
 
         <ul class="list-disc text-gray-800 text-sm">
-          <Fade top>
+          <Fade delay={200}>
             {props.w
               ? props.w.accomplishments.map((a) => (
                   <li class="my-3 text-sm text-gray-800">{a}</li>

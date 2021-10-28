@@ -74,7 +74,7 @@ function Navigation(props) {
             <div class="flex justify-between items-center">
               <button
                 onClick={() => handleScroll(props.homeRef)}
-                class=" text-gray-800 hover:text-gray-900 cursor-pointer text-left text-sm"
+                class=" text-gray-800 hover:text-gray-900 cursor-pointer text-left text-sm "
               >
                 <p>Jed Boffey</p>
                 <p class="text-gray-400">Full-stack Engineer</p>
@@ -95,7 +95,7 @@ function Navigation(props) {
               <div class="hidden md:flex space-x-4 text-sm font-medium text-gray-600">
                 <button
                   onClick={handleGetResume}
-                  class="flex space-x-2 hover:text-gray-800 bg-gray-200 border rounded-2xl px-3 py-2"
+                  class="flex space-x-2 bg-gray-200 border rounded-2xl px-3 py-2 transform hover:scale-105 transition-all duration-75 ease"
                 >
                   <p>Download Resume</p>
                   <DownloadIcon class="h-5 text-gray-400" />

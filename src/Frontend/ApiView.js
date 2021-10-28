@@ -41,8 +41,8 @@ function ApiView() {
         <span class="font-semibold underline">/experience</span> for a list of
         my work experience or{" "}
         <span class="font-semibold underline">/resume</span> for a
-        base64-encoded resume (dealing with Functions' filesystem can be
-        messy!).
+        base64-encoded resume (I'll be adding some POSTs soon for querying
+        skills!).
       </p>
       <div class="flex gap-x-3 mt-9 md:mt-7">
         <input

@@ -7,6 +7,11 @@ module.exports = {
         400: "400px",
         800: "800px",
       },
+      transitionProperty: {
+        width: "width",
+      },
+      padding: ["hover"],
+      flex: ["hover"],
     },
   },
   variants: {
