@@ -51,7 +51,7 @@ function BoffeyOverview() {
             a minor in CS.
           </p>
 
-          <div class="flex mt-3 gap-x-5 ml-1 items-center">
+          <div class="flex flex-wrap gap-y-2 mb:flex-nowrap mt-3 gap-x-5 ml-1 items-center">
             <p class="text-sm text-gray-700 max-w-lg font-semibold flex-1">
               jedboffey@gmail.com
             </p>
