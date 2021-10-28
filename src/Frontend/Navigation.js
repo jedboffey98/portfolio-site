@@ -22,12 +22,13 @@ function Navigation(props) {
   };
 
   const handleScroll = (ref) => {
-    if (ref && ref.current)
-      ref.current.scrollIntoView({
+    if (ref && ref.current) {
+      const y = ref.current.getBoundingClientRect().top - 90;
+      props.scrollRef.current.scrollBy({
         behavior: "smooth",
-        block: "center",
-        block: "center",
+        top: y,
       });
+    }
   };
 
   return (
@@ -54,9 +55,7 @@ function Navigation(props) {
               Education
             </button>
 
-            <button onClick={() => handleScroll(props.contactRef)}>
-              Contact
-            </button>
+            <button onClick={() => handleScroll(props.apiRef)}>API</button>
           </div>
 
           <div>
@@ -86,16 +85,13 @@ function Navigation(props) {
               </button>
 
               <div class="hidden md:flex space-x-7 font-regular text-sm text-gray-600 hover:text-gray-700">
-                <button onClick={() => handleScroll(props.educationRef)}>
-                  Education
-                </button>
-
                 <button onClick={() => handleScroll(props.workRef)}>
                   Work
                 </button>
+                <button onClick={() => handleScroll(props.apiRef)}>API</button>
 
-                <button onClick={() => handleScroll(props.contactRef)}>
-                  Contact
+                <button onClick={() => handleScroll(props.educationRef)}>
+                  Education
                 </button>
               </div>
 

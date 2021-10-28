@@ -16,9 +16,11 @@ import ApiView from "./ApiView";
 function App() {
   const [appeared, setAppeared] = useState(false); //initially set to false to allow for change on mount
 
+  const scrollRef = createRef();
   const homeRef = createRef();
   const workRef = createRef();
   const educationRef = createRef();
+  const apiRef = createRef();
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,11 +37,14 @@ function App() {
       className="app"
       class={`bg-gray-100 relative w-screen h-screen overflow-y-auto overflow-x-hidden
       }`}
+      ref={scrollRef}
     >
       <Navigation
         homeRef={homeRef}
         workRef={workRef}
         educationRef={educationRef}
+        apiRef={apiRef}
+        scrollRef={scrollRef}
       />
 
       <Transition
@@ -54,7 +59,9 @@ function App() {
           <BoffeyOverview />
         </div>
 
-        <ApiView />
+        <div ref={apiRef}>
+          <ApiView />
+        </div>
 
         <div ref={workRef}>
           <HomeaseOverview />
