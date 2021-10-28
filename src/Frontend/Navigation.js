@@ -22,11 +22,12 @@ function Navigation(props) {
   };
 
   const handleScroll = (ref) => {
-    ref.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      block: "center",
-    });
+    if (ref && ref.current)
+      ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        block: "center",
+      });
   };
 
   return (
@@ -38,26 +39,30 @@ function Navigation(props) {
         enterTo="mr-0"
         leave="transition-all duration-500"
         leaveTo="-mr-64"
-        class="absolute top-0 right-0 z-50"
+        class="fixed top-0 right-0 z-50"
       >
         <div class="w-64 p-8 bg-gray-100 h-screen flex flex-col space-y-8 items-end filter drop-shadow-lg">
           <button onClick={toggleMenu}>
             <MenuIcon class="h-6 text-gray-600" />
           </button>
-          <div class="flex flex-col space-y-3 items-end">
-            <button>Experience</button>
+          <div class="flex flex-col space-y-3 items-end text-sm">
+            <button onClick={() => handleScroll(props.workRef)}>
+              Experience
+            </button>
 
-            <button>Skills</button>
+            <button onClick={() => handleScroll(props.educationRef)}>
+              Education
+            </button>
 
-            <button>Education</button>
-
-            <button>Contact</button>
+            <button onClick={() => handleScroll(props.contactRef)}>
+              Contact
+            </button>
           </div>
 
           <div>
             <button
               onClick={handleGetResume}
-              class="flex space-x-2 hover:text-gray-800 border-gray-300 border rounded-xl px-2 py-2"
+              class="flex space-x-2 hover:text-gray-800 border-gray-300 border rounded-xl px-2 py-2 text-sm"
             >
               <p>Download Resume</p>
               <DownloadIcon class="h-6 text-gray-500" />
@@ -89,7 +94,9 @@ function Navigation(props) {
                   Work
                 </button>
 
-                <button>Contact</button>
+                <button onClick={() => handleScroll(props.contactRef)}>
+                  Contact
+                </button>
               </div>
 
               <div class="hidden md:flex space-x-4 text-sm font-medium text-gray-600">
