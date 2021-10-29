@@ -32,8 +32,8 @@ exports.testApi = functions.https.onCall(async (data, context) => {
   // Send get request here because cross-origin policies prevent directly in-app
   return axios({
     method: method,
-    url: `http://localhost:5001/boffey-portfolio/us-central1/webapi/api/v1${extension}`,
-    //url: `https://us-central1-boffey-portfolio.cloudfunctions.net/webapi/api/v1${extension}`,
+    //url: `http://localhost:5001/boffey-portfolio/us-central1/webapi/api/v1${extension}`,
+    url: `https://us-central1-boffey-portfolio.cloudfunctions.net/webapi/api/v1${extension}`,
     responseType: "json",
     data: reqData,
   })
