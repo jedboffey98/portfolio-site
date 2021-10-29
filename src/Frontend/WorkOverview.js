@@ -16,7 +16,7 @@ function WorkOverview() {
   }, []);
 
   return (
-    <div class="w-9/10 max-w-7xl min-h-800 mx-auto px-9 pb-12 pt-16">
+    <div class="w-9/10 max-w-7xl min-h-800 mx-auto px-9 pb-12 pt-4 md:pt-16">
       <div
         class={`grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4 md:gap-y-16 transition-all duration-500
           `}

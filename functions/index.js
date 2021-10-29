@@ -90,6 +90,21 @@ app.get("/skills", async (req, res) => {
     ...skill.data(),
   }));
 
+  const promises = skills.map((skill) =>
+    db.collection("skills").doc(skill.id).collection("endorsements").get()
+  );
+
+  await Promise.all(promises).then((completions) => {
+    completions.forEach((completion, i) => {
+      const endorsements = completion.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      skills[i].endorsements = endorsements;
+    });
+  });
+
   res.json(skills).status(200).send();
 });
 
