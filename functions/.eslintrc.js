@@ -11,5 +11,7 @@ module.exports = {
   rules: {
     quotes: ["error", "double"],
     indent: "off",
+    "max-len": "off",
+    "operator-linebreak": "off",
   },
 };

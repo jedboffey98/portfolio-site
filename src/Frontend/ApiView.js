@@ -59,9 +59,9 @@ function ApiView() {
         <span class="font-semibold underline">/skills</span> or{" "}
         <span class="font-semibold underline">/resume</span> for a
         base64-encoded resume. Or, you can <span>POST</span>{" "}
-        <span>/skills/{`{skill - id}`}/endorse</span> with a JSON body
-        containing your name and a description to endorse any of my skills!
-        (More to come...)
+        <span>/skills/{`{skill-id}`}/endorse</span> with a JSON body containing
+        your name and a description to endorse any of my skills! (More to
+        come...)
       </p>
 
       <div class="grid grid-cols-2 grid-rows-2 md:grid-cols-6 md:grid-rows-1 gap-3 mt-9 md:mt-7">

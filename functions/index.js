@@ -21,7 +21,7 @@ exports.testApi = functions.https.onCall(async (data, context) => {
   const method = data.method.toLowerCase();
   const reqData = data.reqData;
 
-  //will need to shard this eventually to support higher throughput (> 1/s)
+  // will need to shard this eventually to support higher throughput (> 1/s)
   await db
     .collection("stats")
     .doc("api_calls")
@@ -47,7 +47,7 @@ exports.testApi = functions.https.onCall(async (data, context) => {
           error.response.data.errorMessage
             ? ` (${error.response.data.errorMessage})`
             : ""
-        }`; //include any custom error in brackets at end of message for client return
+        }`; // include any custom error in brackets at end of message for client return
       } else {
         return "500 - Unknown error occured"; // unknown error type
       }
@@ -96,7 +96,19 @@ app.get("/skills", async (req, res) => {
 app.route("/skills/:skillId/endorse").post(async (req, res) => {
   console.log(req.body);
   if (req.body.name && req.body.description) {
-    //check no previous endorsements under this name exist
+    //check skill exists
+    const skillSnapshot = await db
+      .collection("skills")
+      .doc(req.params.skillId)
+      .get();
+
+    if (!skillSnapshot.exists) {
+      return res.status(400).json({
+        errorMessage: "Skill ID does not exist",
+      });
+    }
+
+    // check no previous endorsements under this name exist
     const previousEndorsements = await db
       .collection("skills")
       .doc(req.params.skillId)
@@ -110,7 +122,7 @@ app.route("/skills/:skillId/endorse").post(async (req, res) => {
       });
     }
 
-    //write the new endorsement!
+    // write the new endorsement!
     await db
       .collection("skills")
       .doc(req.params.skillId)
